@@ -8,7 +8,7 @@ namespace HandyControlDemo.ViewModel;
 
 public class NotificationDemoViewModel : ViewModelBase
 {
-    public RelayCommand OpenCmd => new(() => Notification.Show(new AppNotification(), ShowAnimation, StaysOpen));
+    public RelayCommand OpenCmd => new(() => Notification.Show(new AppNotification(), ShowAnimation, WaitTime));
 
     private ShowAnimation _showAnimation;
 
@@ -22,15 +22,15 @@ public class NotificationDemoViewModel : ViewModelBase
 #endif
     }
 
-    private bool _staysOpen = true;
+    private int _waitTime = 5;
 
-    public bool StaysOpen
+    public int WaitTime
     {
-        get => _staysOpen;
+        get => _waitTime;
 #if NET40
-        set => Set(nameof(StaysOpen) ,ref _staysOpen, value);
+        set => Set(nameof(WaitTime) ,ref _waitTime, value);
 #else
-        set => Set(ref _staysOpen, value);
+        set => Set(ref _waitTime, value);
 #endif
     }
 }

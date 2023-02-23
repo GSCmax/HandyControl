@@ -10,10 +10,9 @@
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
             <ComboBox SelectedValue="{Binding ShowAnimation}" ItemsSource="{Binding Source={StaticResource ShowAnimations}}"/>
-            <hc:ButtonGroup Margin="0,16,0,0">
-                <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.StaysOpen}}" IsChecked="{Binding StaysOpen}"/>
-                <Button Command="{Binding OpenCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.SendNotification}}"/>
-            </hc:ButtonGroup>
+            <hc:NumericUpDown Margin="0,16,0,0" Maximum="100" Minimum="0" Value="{Binding WaitTime}"/>
+            <Button Margin="0,16,0,0" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Stretch"
+                    Command="{Binding OpenCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.SendNotification}}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

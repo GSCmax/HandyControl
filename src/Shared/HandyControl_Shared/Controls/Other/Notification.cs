@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 
 public sealed class Notification : System.Windows.Window
 {
-    private const int WaitTime = 6;
+    private static int WaitTime;
 
     /// <summary>
     ///     计数
@@ -31,7 +31,7 @@ public sealed class Notification : System.Windows.Window
         AllowsTransparency = true;
     }
 
-    public static Notification Show(object content, ShowAnimation showAnimation = ShowAnimation.None, bool staysOpen = false)
+    public static Notification Show(object content, ShowAnimation showAnimation = ShowAnimation.None, int waitTime = 5)
     {
         var notification = new Notification
         {
@@ -77,7 +77,11 @@ public sealed class Notification : System.Windows.Window
                 break;
         }
 
-        if (!staysOpen) notification.StartTimer();
+        if (waitTime > 0)
+        {
+            WaitTime = waitTime;
+            notification.StartTimer();
+        }
 
         return notification;
     }
