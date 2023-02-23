@@ -5,11 +5,13 @@ using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Tools;
 
+using System.Windows.Forms;
+
 namespace HandyControl.Controls;
 
 public sealed class Notification : System.Windows.Window
 {
-    private static int WaitTime;
+    private int WaitTime;
 
     /// <summary>
     ///     计数
@@ -31,59 +33,60 @@ public sealed class Notification : System.Windows.Window
         AllowsTransparency = true;
     }
 
-    public static Notification Show(object content, ShowAnimation showAnimation = ShowAnimation.None, int waitTime = 5)
+    public static void Init(object content, ShowAnimation showAnimation = ShowAnimation.None, int waitTime = 5)
     {
-        var notification = new Notification
+        foreach(var screen in Screen.AllScreens)
         {
-            Content = content,
-            Opacity = 0,
-            ShowAnimation = showAnimation
-        };
+            var notification = new Notification
+            {
+                Content = content,
+                Opacity = 0,
+                ShowAnimation = showAnimation
+            };
 
-        notification.Show();
+            notification.Show();
 
-        var desktopWorkingArea = SystemParameters.WorkArea;
-        var leftMax = desktopWorkingArea.Width - notification.ActualWidth;
-        var topMax = desktopWorkingArea.Height - notification.ActualHeight;
+            var desktopWorkingArea = screen.WorkingArea;
+            var leftMax = desktopWorkingArea.Width - notification.ActualWidth;
+            var topMax = desktopWorkingArea.Height - notification.ActualHeight;
 
-        switch (showAnimation)
-        {
-            case ShowAnimation.None:
-                notification.Opacity = 1;
-                notification.Left = leftMax;
-                notification.Top = topMax;
-                break;
-            case ShowAnimation.HorizontalMove:
-                notification.Opacity = 1;
-                notification.Left = desktopWorkingArea.Width;
-                notification.Top = topMax;
-                notification.BeginAnimation(LeftProperty, AnimationHelper.CreateAnimation(leftMax));
-                break;
-            case ShowAnimation.VerticalMove:
-                notification.Opacity = 1;
-                notification.Left = leftMax;
-                notification.Top = desktopWorkingArea.Height;
-                notification.BeginAnimation(TopProperty, AnimationHelper.CreateAnimation(topMax));
-                break;
-            case ShowAnimation.Fade:
-                notification.Left = leftMax;
-                notification.Top = topMax;
-                notification.BeginAnimation(OpacityProperty, AnimationHelper.CreateAnimation(1));
-                break;
-            default:
-                notification.Opacity = 1;
-                notification.Left = leftMax;
-                notification.Top = topMax;
-                break;
+            switch (showAnimation)
+            {
+                case ShowAnimation.None:
+                    notification.Opacity = 1;
+                    notification.Left = leftMax;
+                    notification.Top = topMax;
+                    break;
+                case ShowAnimation.HorizontalMove:
+                    notification.Opacity = 1;
+                    notification.Left = desktopWorkingArea.Width;
+                    notification.Top = topMax;
+                    notification.BeginAnimation(LeftProperty, AnimationHelper.CreateAnimation(leftMax));
+                    break;
+                case ShowAnimation.VerticalMove:
+                    notification.Opacity = 1;
+                    notification.Left = leftMax;
+                    notification.Top = desktopWorkingArea.Height;
+                    notification.BeginAnimation(TopProperty, AnimationHelper.CreateAnimation(topMax));
+                    break;
+                case ShowAnimation.Fade:
+                    notification.Left = leftMax;
+                    notification.Top = topMax;
+                    notification.BeginAnimation(OpacityProperty, AnimationHelper.CreateAnimation(1));
+                    break;
+                default:
+                    notification.Opacity = 1;
+                    notification.Left = leftMax;
+                    notification.Top = topMax;
+                    break;
+            }
+
+            if (waitTime > 0)
+            {
+                notification.WaitTime = waitTime;
+                notification.StartTimer();
+            }
         }
-
-        if (waitTime > 0)
-        {
-            WaitTime = waitTime;
-            notification.StartTimer();
-        }
-
-        return notification;
     }
 
     protected override void OnClosing(CancelEventArgs e)

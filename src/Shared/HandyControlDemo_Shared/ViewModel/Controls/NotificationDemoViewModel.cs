@@ -8,7 +8,7 @@ namespace HandyControlDemo.ViewModel;
 
 public class NotificationDemoViewModel : ViewModelBase
 {
-    public RelayCommand OpenCmd => new(() => Notification.Show(new AppNotification(), ShowAnimation, WaitTime));
+    public RelayCommand OpenCmd => new(() => Notification.Init(new AppNotification(), ShowAnimation, WaitTime));
 
     private ShowAnimation _showAnimation;
 
