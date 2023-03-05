@@ -57,8 +57,8 @@ public partial class App
         }
         else
         {
-            var splashScreen = new SplashScreen("Resources/Img/Cover.png");
-            splashScreen.Show(true);
+            //var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+            //splashScreen.Show(true);
 
             base.OnStartup(e);
 
