@@ -3,8 +3,8 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <Color x:Key="LightPrimaryColor">#f3fbff</Color>
-    <Color x:Key="PrimaryColor">#326cf3</Color>
-    <Color x:Key="DarkPrimaryColor">#326cf3</Color>
+    <Color x:Key="PrimaryColor">#1D2088</Color>
+    <Color x:Key="DarkPrimaryColor">#1D2088</Color>
 
     <Color x:Key="LightDangerColor">#fff6f7</Color>
     <Color x:Key="DangerColor">#db3340</Color>
