@@ -9359,6 +9359,19 @@
 		</Setter>
 	</Style>
 	<Style x:Key="ListViewItemBaseStyle" TargetType="ListViewItem">
+		<Setter Property="FocusVisualStyle">
+			<Setter.Value>
+				<Style>
+					<Setter Property="Control.Template">
+						<Setter.Value>
+							<ControlTemplate>
+								<Rectangle Margin="2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4" />
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</Setter.Value>
+		</Setter>
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
