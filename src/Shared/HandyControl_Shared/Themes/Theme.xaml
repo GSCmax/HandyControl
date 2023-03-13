@@ -9380,7 +9380,7 @@
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 			</Trigger>
 			<Trigger Property="IsSelected" Value="True">
-				<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+				<Setter Property="Background" Value="#a5a6cf" />
 				<Setter Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}" />
 			</Trigger>
 			<MultiTrigger>
