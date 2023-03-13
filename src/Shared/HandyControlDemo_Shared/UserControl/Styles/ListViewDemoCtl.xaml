@@ -25,6 +25,20 @@
                             <GridViewColumn Width="80" Header="{ex:Lang Key={x:Static langs:LangKeys.Index}}" DisplayMemberBinding="{Binding Index}" />
                             <GridViewColumn Width="100" Header="{ex:Lang Key={x:Static langs:LangKeys.Name}}" DisplayMemberBinding="{Binding Name}" />
                             <GridViewColumn Width="200" Header="{ex:Lang Key={x:Static langs:LangKeys.Remark}}" DisplayMemberBinding="{Binding Remark}" />
+                            <GridViewColumn Width="200" Header="{ex:Lang Key={x:Static langs:LangKeys.Remark}}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Remark, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="200" Header="发送">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="发送" Click="Button_Click" Style="{StaticResource ButtonPrimary}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
