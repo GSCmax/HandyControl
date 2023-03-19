@@ -9274,7 +9274,7 @@
 				<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 			</Trigger>
 			<Trigger Property="IsSelected" Value="true">
-				<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+				<Setter Property="Background" Value="#a5a6cf" />
 				<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
 			</Trigger>
 			<MultiTrigger>
