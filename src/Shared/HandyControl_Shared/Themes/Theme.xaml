@@ -9324,7 +9324,7 @@
 					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+								<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="True" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
 									<ItemsPresenter />
 								</hc:ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -12803,22 +12803,6 @@
 	</Style>
 	<Style x:Key="ListBox.Small" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle.Small}" />
-	</Style>
-	<Style x:Key="ListBoxItemBaseStyle.PrimaryBorder" BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
-		<Setter Property="BorderThickness" Value="1" />
-		<Style.Triggers>
-			<Trigger Property="IsMouseOver" Value="true">
-				<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-			</Trigger>
-			<Trigger Property="IsSelected" Value="true">
-				<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-				<Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}" />
-			</Trigger>
-		</Style.Triggers>
-	</Style>
-	<Style x:Key="ListBox.PrimaryBorder" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
-		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle.PrimaryBorder}" />
 	</Style>
 	<Style x:Key="ListBoxCustom" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemCustom}" />
