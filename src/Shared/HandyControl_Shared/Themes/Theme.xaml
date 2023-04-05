@@ -10285,7 +10285,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Padding" Value="0,10" />
+		<Setter Property="Padding" Value="0,0" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:RunningBlock">
