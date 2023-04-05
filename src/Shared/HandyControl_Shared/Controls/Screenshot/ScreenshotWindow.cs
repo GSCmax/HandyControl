@@ -252,10 +252,12 @@ public class ScreenshotWindow : System.Windows.Window
                         MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: 1, topFlag: 1));
                     }
                     break;
-                case Key.Enter:
-                    _saveScreenshot = true;
-                    Close();
-                    break;
+                //case Key.Enter:
+                //    {
+                //        _saveScreenshot = true;
+                //        Close();
+                //    }
+                //    break;
             }
         }
     }
@@ -691,7 +693,7 @@ public class ScreenshotWindow : System.Windows.Window
 
         _targetWindowRect = new InteropValues.RECT(left, top, left + width, top + height);
         Size = _targetWindowRect.Size;
-        SizeStr = $"{_targetWindowRect.Width} x {_targetWindowRect.Height}";
+        SizeStr = $"{_targetWindowRect.Width} x {_targetWindowRect.Height}\r\n双击左键确认";
 
         MoveMaskArea();
     }
