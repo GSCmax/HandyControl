@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <TargetFrameworks>net472;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
     <Description>Contains some simple and commonly used WPF controls</Description>
     <PackageId>HandyControl</PackageId>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
